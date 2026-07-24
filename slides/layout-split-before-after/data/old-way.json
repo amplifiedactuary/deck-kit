@@ -1,0 +1,13 @@
+{
+  "_note": "FICTIONAL SAMPLE DATA — a stylised sequential reporting workflow for the 'before' panel.",
+  "axisMonths": 6,
+  "phases": [
+    { "label": "Data collection", "startM": 0.0, "endM": 0.75 },
+    { "label": "Cleaning & QA", "startM": 0.75, "endM": 1.75 },
+    { "label": "Analysis", "startM": 1.75, "endM": 3.0 },
+    { "label": "Modelling", "startM": 3.0, "endM": 4.0 },
+    { "label": "Validation", "startM": 4.0, "endM": 4.75 },
+    { "label": "Reporting", "startM": 4.75, "endM": 5.5 },
+    { "label": "Sign-off", "startM": 5.5, "endM": 6.0 }
+  ]
+}

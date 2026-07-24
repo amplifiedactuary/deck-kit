@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explainer Harness — starter</title>
+<!--
+  A minimal, THEME-FREE engine for a timed, seekable canvas explainer.
+  Everything on screen is a pure function of the clock `t` (seconds).
+  That single rule is what gives you: scrubbing, deterministic replay,
+  and screenshot-at-timestamp verification — with no video file.
+
+  To make your own explainer you touch TWO things and nothing else:
+    1. TOKENS   — palette + fonts (your theme)
+    2. BEATS[]  — each beat is { id, start, end, draw(t, ctx, u) }
+  The engine below (clock, scaler, seek, replay, keys, progress) never changes.
+
+  The three demo beats are ONLY here to prove the mechanics. Delete them.
+-->
+<style>
+  html,body{margin:0;height:100%;background:#000;overflow:hidden}
+  /* The stage is a fixed 1920x1080 design canvas, scaled to fit any screen. */
+  #stage{position:absolute;top:50%;left:50%;width:1920px;height:1080px;
+         transform-origin:center;}
+  canvas{position:absolute;inset:0;width:1920px;height:1080px}
+  #ui{position:absolute;left:40px;bottom:28px;right:40px;display:flex;
+      align-items:center;gap:16px;font:12px system-ui;color:#8b93a7;
+      letter-spacing:.08em}
+  #bar{flex:1;height:3px;background:#222a38;border-radius:2px;position:relative}
+  #fill{position:absolute;inset:0 auto 0 0;width:0;background:#4a6cf7;border-radius:2px}
+  #beat{min-width:180px}
+  button{background:#151a24;color:#e6e9ef;border:1px solid #2c3446;
+         border-radius:6px;padding:5px 12px;font:12px system-ui;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="c" width="1920" height="1080"></canvas>
+</div>
+<div id="ui">
+  <button id="replay">↻ Replay</button>
+  <span id="beat"></span>
+  <div id="bar"><div id="fill"></div></div>
+  <span id="tc"></span>
+</div>
+
+<script>
+/* ─────────────────────────  THEME TOKENS  (edit me) ───────────────────── */
+const TOKENS = {
+  bg:'#0d1017', ink:'#e6e9ef', dim:'#8b93a7', accent:'#4a6cf7', gold:'#f5c451',
+  display:'700 96px "Georgia", serif', body:'500 30px system-ui',
+};
+
+/* ─────────────────────────  TINY UTILITIES  ──────────────────────────── */
+// Deterministic PRNG — SAME output every replay/seek. Never use Math.random().
+function mulberry32(seed){return function(){let x=seed+=0x6D2B79F5;
+  x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);
+  return((x^x>>>14)>>>0)/4294967296;};}
+const rnd = mulberry32(1234);                 // reseed per run for stable art
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,u)=>a+(b-a)*u;
+const easeInOut=u=>u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
+// Local progress 0..1 across a [t0,t1] window, eased and clamped.
+const seg=(t,t0,t1)=>clamp((t-t0)/(t1-t0),0,1);
+const ease=(t,t0,t1)=>easeInOut(seg(t,t0,t1));
+
+/* ─────────────────────────  YOUR BEATS  (edit me) ────────────────────────
+   A beat owns a time window and knows how to draw ITSELF at any t inside it.
+   `u` is the eased 0..1 progress through this beat, precomputed for you.
+   Author the beat SHEET first (window + one idea + caption), then fill draw().
+------------------------------------------------------------------------- */
+const BEATS = [
+  { id:'1 — draw-on', start:0, end:4, draw(t,ctx,u){
+      // Draw-on: a line that grows with progress. Length = function of u.
+      ctx.strokeStyle=TOKENS.accent; ctx.lineWidth=6; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(360,540);
+      ctx.lineTo(lerp(360,1560,u),540); ctx.stroke();
+      caption(ctx,'Everything is a function of t.');
+  }},
+  { id:'2 — count', start:4, end:8, draw(t,ctx,u){
+      // A numeral that counts by sampling u — not by a timer.
+      ctx.fillStyle=TOKENS.gold; ctx.font=TOKENS.display; ctx.textAlign='center';
+      ctx.fillText(Math.round(lerp(0,10000,u)).toLocaleString(),960,560);
+      caption(ctx,'Seek anywhere — the frame recomputes.');
+  }},
+  { id:'3 — camera', start:8, end:12, draw(t,ctx,u){
+      // "Camera" pull-back: scale the whole scene as a function of u.
+      const s=lerp(2.4,1,u);
+      ctx.save(); ctx.translate(960,520); ctx.scale(s,s); ctx.translate(-960,-520);
+      ctx.fillStyle=TOKENS.accent;
+      for(let i=0;i<400;i++){const a=rnd()*6.28,r=rnd()*520;
+        ctx.globalAlpha=.5; ctx.fillRect(960+Math.cos(a)*r,520+Math.sin(a)*r,4,4);}
+      ctx.restore(); ctx.globalAlpha=1;
+      caption(ctx,'Concrete → abstract, in one continuous move.');
+  }},
+];
+const DURATION = BEATS[BEATS.length-1].end;
+
+// A shared component (part of your THEME layer, not the engine).
+function caption(ctx,txt){
+  ctx.fillStyle=TOKENS.ink; ctx.font=TOKENS.body; ctx.textAlign='center';
+  ctx.fillText(txt,960,960);
+}
+
+/* ─────────────────────────  THE ENGINE  (don't edit) ─────────────────────
+   Master clock → find the active beat → clear → draw(t). One render(t) path
+   serves BOTH the live rAF loop AND window.seekTo(), so they can't diverge.
+------------------------------------------------------------------------- */
+const c=document.getElementById('c'), ctx=c.getContext('2d');
+function render(t){
+  t=clamp(t,0,DURATION);
+  ctx.fillStyle=TOKENS.bg; ctx.fillRect(0,0,1920,1080);
+  const b=BEATS.find(b=>t>=b.start && t<b.end) || BEATS[BEATS.length-1];
+  b.draw(t, ctx, ease(t,b.start,b.end));
+  document.getElementById('fill').style.width=(t/DURATION*100)+'%';
+  document.getElementById('beat').textContent='Beat '+b.id;
+  document.getElementById('tc').textContent=t.toFixed(1)+'s / '+DURATION+'s';
+}
+let t0=performance.now(), paused=false, held=0;
+function loop(now){
+  if(!paused) render(held=(now-t0)/1000);
+  if(held<DURATION) requestAnimationFrame(loop); else render(DURATION);
+}
+// Seek: the SAME render path. This is what makes screenshot-verify possible.
+window.seekTo=s=>{paused=true; render(clamp(s,0,DURATION));};
+function play(from=0){paused=false; t0=performance.now()-from*1000; requestAnimationFrame(loop);}
+document.getElementById('replay').onclick=()=>play(0);
+// Number keys jump to each beat; ←/→ nudge; Space pause/resume.
+addEventListener('keydown',e=>{
+  const n=parseInt(e.key,10);
+  if(n>=1&&n<=BEATS.length) play(BEATS[n-1].start);
+  else if(e.key==='ArrowRight') seekTo(held+1);
+  else if(e.key==='ArrowLeft') seekTo(held-1);
+  else if(e.key===' '){paused=!paused; if(!paused) play(held);}
+});
+// Fit the 1920x1080 stage to the window.
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);
+  document.getElementById('stage').style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit); fit();
+// Wait for fonts so first frame isn't drawn in a fallback face, then play.
+Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]).then(()=>play(0));
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "provenance": "Fictional sample data for Northwind Insurance — product-line GWP ($K) by quarter. All values invented for layout demonstration.",
+  "tools": [
+    { "id": "motor", "label": "Motor", "color": "#f59e0b" },
+    { "id": "home", "label": "Home", "color": "#38bdf8" },
+    { "id": "life", "label": "Life", "color": "#a78bfa" },
+    { "id": "travel", "label": "Travel", "color": "#34d399" },
+    { "id": "commercial", "label": "Commercial", "color": "#fb7185" },
+    { "id": "marine", "label": "Marine", "color": "#2dd4bf" },
+    { "id": "liability", "label": "Liability", "color": "#818cf8" },
+    { "id": "other", "label": "Other", "color": "#94a3b8" }
+  ],
+  "phases": [
+    {
+      "label": "Q1 2023 · launch",
+      "counts": { "motor": 820, "home": 640, "life": 310, "travel": 190, "commercial": 140, "marine": 80, "liability": 60, "other": 40 }
+    },
+    {
+      "label": "Q2 2023 · early growth",
+      "counts": { "motor": 1100, "home": 870, "life": 490, "travel": 320, "commercial": 240, "marine": 130, "liability": 100, "other": 70 }
+    },
+    {
+      "label": "Q3 2023 · mid-year push",
+      "counts": { "motor": 1480, "home": 1140, "life": 720, "travel": 580, "commercial": 390, "marine": 200, "liability": 160, "other": 110 }
+    },
+    {
+      "label": "Q4 2023 · year-end surge",
+      "counts": { "motor": 1920, "home": 1520, "life": 1040, "travel": 820, "commercial": 560, "marine": 290, "liability": 230, "other": 160 }
+    },
+    {
+      "label": "Q1 2024 · expansion",
+      "counts": { "motor": 2340, "home": 1890, "life": 1380, "travel": 1020, "commercial": 810, "marine": 420, "liability": 330, "other": 220 }
+    },
+    {
+      "label": "Q2 2025 · current",
+      "counts": { "motor": 3100, "home": 2460, "life": 2010, "travel": 1580, "commercial": 1240, "marine": 680, "liability": 520, "other": 340 }
+    }
+  ]
+}

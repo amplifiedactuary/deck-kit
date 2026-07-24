@@ -1,0 +1,7 @@
+{
+  "revenueM": 48.2,
+  "investedM": 9.8,
+  "leverage": 4.9,
+  "source": "fictional sample data (lib/sampleData.ts)",
+  "note": "The formula structure (Volume × Retention × Efficiency ÷ Risk) is illustrative — not a fitted model."
+}

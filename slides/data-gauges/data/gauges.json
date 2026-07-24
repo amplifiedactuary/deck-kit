@@ -1,0 +1,48 @@
+{
+  "source": "fictional sample data (lib/sampleData.ts)",
+  "extracted": "2025",
+  "gauges": [
+    {
+      "id": "retention",
+      "label": "RETENTION",
+      "value": 91,
+      "max": 100,
+      "majorStep": 25,
+      "minorStep": 5,
+      "decimals": 0,
+      "suffix": "%",
+      "band": { "from": 75, "to": 100 },
+      "metric": "annual",
+      "formula": "91 of 100 customers renewing",
+      "caption": "Nine in ten customers renewed their policy this year — a record high for Northwind."
+    },
+    {
+      "id": "satisfaction",
+      "label": "SATISFACTION",
+      "value": 4.6,
+      "max": 5,
+      "majorStep": 1,
+      "minorStep": 0.25,
+      "decimals": 1,
+      "suffix": "/5",
+      "band": { "from": 4, "to": 5 },
+      "metric": "NPS survey",
+      "formula": "avg score across 1,840 responses",
+      "caption": "Customer satisfaction reached 4.6 out of 5 — up from 4.1 the prior year."
+    },
+    {
+      "id": "growth",
+      "label": "GROWTH",
+      "value": 23,
+      "max": 40,
+      "majorStep": 10,
+      "minorStep": 2,
+      "decimals": 0,
+      "suffix": "%",
+      "band": { "from": 20, "to": 40 },
+      "metric": "YoY",
+      "formula": "revenue up 23% year-on-year",
+      "caption": "Revenue grew 23% year-on-year, driven by Motor and Travel product lines."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source": {
+    "pctOfWork": "Fictional sample data — regional GWP share for Northwind Insurance FY 2025. All values invented for layout demonstration.",
+    "agentLaunches": "Fictional — NPS score per region, illustrative only."
+  },
+  "lanes": [
+    { "id": "east", "label": "East", "pct": 31, "launches": 68 },
+    { "id": "north", "label": "North", "pct": 25, "launches": 54 },
+    { "id": "south", "label": "South", "pct": 22, "launches": 49 },
+    { "id": "west", "label": "West", "pct": 14, "launches": 38 },
+    { "id": "other", "label": "Other / international", "pct": 8, "launches": 29 }
+  ]
+}

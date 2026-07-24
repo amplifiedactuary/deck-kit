@@ -1,0 +1,24 @@
+{
+  "source": "fictional sample data (lib/sampleData.ts)",
+  "totalCommits": 240,
+  "mergeCommits": 28,
+  "neutralColor": "#3a4252",
+  "phases": [
+    { "id": "motor", "label": "Motor", "start": 0, "end": 90, "color": "#5b8def" },
+    { "id": "home", "label": "Home", "start": 91, "end": 154, "color": "#2dd4bf" },
+    { "id": "life", "label": "Life", "start": 155, "end": 203, "color": "#a78bfa" },
+    { "id": "travel", "label": "Travel", "start": 204, "end": 239, "color": "#f0647a" }
+  ],
+  "callouts": {
+    "recoveryRun": {
+      "start": 225,
+      "end": 237,
+      "labelTop": "Travel quarter →",
+      "labelBottom": "13 new policies"
+    },
+    "mergeDot": {
+      "index": 239,
+      "label": "landmark corporate sale"
+    }
+  }
+}

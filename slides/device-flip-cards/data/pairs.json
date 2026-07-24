@@ -1,0 +1,35 @@
+{
+  "note": "Fictional sample data for an example slide. These assumption↔reality pairs are plausible insurance business scenarios invented to demonstrate the flip-card device — they are not sourced from any real company.",
+  "pairs": [
+    {
+      "tag": "RETENTION",
+      "front": "A lower premium will keep the customer.",
+      "back": "Speed of claims settlement keeps them. Price is secondary."
+    },
+    {
+      "tag": "GROWTH",
+      "front": "New customers drive revenue growth.",
+      "back": "Existing customers renewing into broader cover drive it more."
+    },
+    {
+      "tag": "RISK",
+      "front": "More data means better risk selection.",
+      "back": "Better questions mean better risk selection. Data only scales the answer."
+    },
+    {
+      "tag": "SERVICE",
+      "front": "Customers want faster responses.",
+      "back": "Customers want fewer reasons to contact us at all."
+    },
+    {
+      "tag": "PRICING",
+      "front": "Market pricing sets the floor.",
+      "back": "Underwriting discipline sets the floor. Market pricing sets the ceiling."
+    },
+    {
+      "tag": "TECHNOLOGY",
+      "front": "A new system will solve the process problem.",
+      "back": "A clear process will make the system worth buying."
+    }
+  ]
+}

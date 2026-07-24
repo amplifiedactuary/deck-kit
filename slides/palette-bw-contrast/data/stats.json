@@ -1,0 +1,9 @@
+{
+  "source": "fictional sample data (lib/sampleData.ts) — Northwind Insurance KPIs",
+  "stats": [
+    { "value": 20.4, "unit": "revenue $M", "note": "annual premium income" },
+    { "value": 91, "unit": "retention %", "note": "customers renewing each year" },
+    { "value": 84200, "unit": "customers", "note": "active policyholders" },
+    { "value": 23, "unit": "growth %", "note": "year-on-year revenue growth" }
+  ]
+}

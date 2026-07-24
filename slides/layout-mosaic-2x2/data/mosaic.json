@@ -1,0 +1,24 @@
+{
+  "stat": {
+    "value": "91",
+    "unit": "%",
+    "label": "customer retention — Northwind Insurance FY 2025",
+    "subline": "84,200 active policyholders · +23% YoY growth"
+  },
+  "quote": {
+    "text": "We stopped guessing what customers needed and started listening to the data — the results followed.",
+    "attribution": "Northwind CEO · FY 2025 annual review"
+  },
+  "cadence": {
+    "label": "new policies written per quarter ($M GWP)",
+    "blocks": [12, 31, 42, 38, 54, 47, 61, 58, 49, 63],
+    "axisStart": "Q1 2023",
+    "axisEnd": "Q2 2025"
+  },
+  "diagram": {
+    "caption": "growth through product diversification",
+    "human": "1 team",
+    "agents": 6,
+    "output": "4 lines"
+  }
+}

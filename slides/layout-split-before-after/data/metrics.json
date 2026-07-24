@@ -1,0 +1,12 @@
+{
+  "source": "fictional sample data (lib/sampleData.ts)",
+  "commits": 240,
+  "windowHours": 12.0,
+  "attendedHours": 4.2,
+  "machineHours": 6.8,
+  "stackedAgentHours": 22.5,
+  "trueLeverage": 5.4,
+  "peakConcurrentAgents": 8,
+  "agentLaunches": 64,
+  "buildWindowLabel": "Q4 reporting cycle — Northwind Insurance"
+}

@@ -1,0 +1,65 @@
+{
+  "contactName": "Alex (Analyst)",
+  "contactStatus": "available",
+  "items": [
+    { "type": "divider", "id": "d1", "day": "Monday", "time": "09:14", "step": 0 },
+    {
+      "type": "message",
+      "id": "m1",
+      "sender": "manager",
+      "text": "Can you pull together the Q4 revenue summary for the board pack? Need it by Thursday.",
+      "step": 0
+    },
+    {
+      "type": "message",
+      "id": "m2",
+      "sender": "analyst",
+      "text": "On it. Pulling Motor, Home, Life, and Travel lines — I'll flag anything that needs your sign-off.",
+      "step": 1
+    },
+    {
+      "type": "message",
+      "id": "m3",
+      "sender": "analyst",
+      "text": "Q4 revenue is $6.3M, up 23% on Q3. Motor is the driver — 38% of mix.",
+      "step": 2
+    },
+    {
+      "type": "message",
+      "id": "m4",
+      "sender": "manager",
+      "text": "What's behind the claims ratio drop?",
+      "step": 3
+    },
+    {
+      "type": "message",
+      "id": "m5",
+      "sender": "analyst",
+      "text": "Primarily the Home segment — loss prevention programme cut frequency by ~12%. Two assumptions flagged for your review.",
+      "step": 4
+    },
+    {
+      "type": "message",
+      "id": "m6",
+      "sender": "manager",
+      "text": "Looks good. Include the NPS trend too.",
+      "step": 4
+    },
+    { "type": "divider", "id": "d2", "day": "Wednesday", "time": "16:45", "step": 5 },
+    {
+      "type": "message",
+      "id": "m7",
+      "sender": "analyst",
+      "text": "Done. Slide deck attached — 12 pages, all charts refreshed against the live data.",
+      "step": 5
+    },
+    {
+      "type": "message",
+      "id": "m8",
+      "sender": "manager",
+      "text": "Perfect. Sending to the board tonight.",
+      "step": 5
+    },
+    { "type": "receipt", "id": "r1", "label": "Delivered", "step": 5 }
+  ]
+}

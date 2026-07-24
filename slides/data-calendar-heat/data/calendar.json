@@ -1,0 +1,41 @@
+{
+  "note": "ILLUSTRATIVE hourly contact counts — fictional sample data for Northwind Insurance. Shaped to show realistic weekday inbound patterns (Mon–Wed), with a midweek peak and overnight activity. All per-cell numbers are invented for this visual experiment.",
+  "days": [
+    { "label": "MON", "date": "14 APR" },
+    { "label": "TUE", "date": "15 APR" },
+    { "label": "WED", "date": "16 APR" }
+  ],
+  "counts": [
+    [0, 18, 42, 68, 94, 72, 38, 24, 62, 138, 186, 224, 198, 112, 204, 248, 219, 162, 128, 148, 106, 88, 132, 164],
+    [148, 112, 92, 0, 0, 0, 0, 38, 96, 188, 244, 312, 196, 118, 244, 281, 214, 178, 134, 188, 224, 156, 78, 36],
+    [0, 0, 0, 0, 0, 0, 22, 88, 182, 274, 308, 214, 178, 144, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ],
+  "thresholds": [1, 80, 180, 300],
+  "legendLabels": ["0", "1–79", "80–179", "180–299", "300+"],
+  "callouts": [
+    {
+      "id": "slept",
+      "day": 1,
+      "hour": 2,
+      "span": 1,
+      "tag": "TUE 02:00",
+      "text": "Overnight contacts — an active evening shift."
+    },
+    {
+      "id": "deadzone",
+      "day": 1,
+      "hour": 3,
+      "span": 4,
+      "tag": "TUE 03:00–07:00",
+      "text": "The quiet window — pre-dawn, no inbound volume."
+    },
+    {
+      "id": "peak",
+      "day": 1,
+      "hour": 11,
+      "span": 1,
+      "tag": "TUE 11:00",
+      "text": "Peak hour: 312 customer contacts."
+    }
+  ]
+}

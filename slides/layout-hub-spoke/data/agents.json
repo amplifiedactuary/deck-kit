@@ -1,0 +1,41 @@
+{
+  "_provenance": "fictional sample data (lib/sampleData.ts)",
+  "hub": { "label": "HEAD OFFICE", "sub": "Northwind Insurance" },
+  "stats": {
+    "peakConcurrent": 8,
+    "launches": 47,
+    "foreground": 31,
+    "background": 16,
+    "medianSeconds": 240,
+    "windowHours": 12,
+    "shown": 24
+  },
+  "rings": [250, 425],
+  "nodes": [
+    { "id": "in-motor", "label": "motor division", "kind": "build", "ring": 0, "angle": -90, "labeled": true },
+    { "id": "in-home", "label": "home division", "kind": "research", "ring": 0, "angle": -45, "labeled": true },
+    { "id": "in-life", "label": "life division", "kind": "research", "ring": 0, "angle": 0, "labeled": true },
+    { "id": "in-travel", "label": "travel division", "kind": "build", "ring": 0, "angle": 45, "labeled": true },
+    { "id": "in-claims", "label": "claims ops", "kind": "review", "ring": 0, "angle": 90, "labeled": true },
+    { "id": "in-digital", "label": "digital channels", "kind": "build", "ring": 0, "angle": 135, "labeled": true },
+    { "id": "in-risk", "label": "risk & actuarial", "kind": "review", "ring": 0, "angle": 180, "labeled": true },
+    { "id": "in-finance", "label": "finance & ops", "kind": "build", "ring": 0, "angle": -135, "labeled": true },
+
+    { "id": "out-fleet", "label": "fleet team", "kind": "build", "ring": 1, "angle": -103, "parent": "in-motor", "labeled": true },
+    { "id": "out-retail", "label": "retail auto", "kind": "build", "ring": 1, "angle": -77, "parent": "in-motor", "labeled": false },
+    { "id": "out-content", "label": "contents", "kind": "research", "ring": 1, "angle": -58, "parent": "in-home", "labeled": false },
+    { "id": "out-build", "label": "buildings", "kind": "research", "ring": 1, "angle": -32, "parent": "in-home", "labeled": false },
+    { "id": "out-term", "label": "term life", "kind": "research", "ring": 1, "angle": -13, "parent": "in-life", "labeled": true },
+    { "id": "out-whole", "label": "whole life", "kind": "build", "ring": 1, "angle": 13, "parent": "in-life", "labeled": false },
+    { "id": "out-corp", "label": "corporate travel", "kind": "build", "ring": 1, "angle": 32, "parent": "in-travel", "labeled": false },
+    { "id": "out-leisure", "label": "leisure travel", "kind": "review", "ring": 1, "angle": 58, "parent": "in-travel", "labeled": false },
+    { "id": "out-fast", "label": "fast-track claims", "kind": "review", "ring": 1, "angle": 77, "parent": "in-claims", "labeled": true },
+    { "id": "out-complex", "label": "complex cases", "kind": "review", "ring": 1, "angle": 103, "parent": "in-claims", "labeled": false },
+    { "id": "out-app", "label": "mobile app", "kind": "build", "ring": 1, "angle": 122, "parent": "in-digital", "labeled": false },
+    { "id": "out-broker", "label": "broker portal", "kind": "build", "ring": 1, "angle": 148, "parent": "in-digital", "labeled": false },
+    { "id": "out-model", "label": "pricing models", "kind": "review", "ring": 1, "angle": 167, "parent": "in-risk", "labeled": false },
+    { "id": "out-reserve", "label": "reserving", "kind": "review", "ring": 1, "angle": -167, "parent": "in-risk", "labeled": false },
+    { "id": "out-audit", "label": "internal audit", "kind": "build", "ring": 1, "angle": -148, "parent": "in-finance", "labeled": false },
+    { "id": "out-reporting", "label": "reporting", "kind": "review", "ring": 1, "angle": -122, "parent": "in-finance", "labeled": false }
+  ]
+}

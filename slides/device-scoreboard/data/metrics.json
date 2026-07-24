@@ -1,0 +1,7 @@
+{
+  "targetRevenue": 5.0,
+  "actualRevenue": 6.3,
+  "growthMultiple": 1.26,
+  "growthPct": 23,
+  "source": "fictional sample data (lib/sampleData.ts)"
+}

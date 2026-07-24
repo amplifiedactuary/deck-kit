@@ -1,0 +1,20 @@
+{
+  "source": "fictional sample data (lib/sampleData.ts)",
+  "heroId": "growth",
+  "closingLine": "Only one of these numbers is about our customers.",
+  "kicker": "Northwind Insurance · FY 2025 · twelve numbers",
+  "tiles": [
+    { "id": "revenue", "label": "revenue ($M)", "value": 20.4, "decimals": 1, "prefix": "$", "suffix": "M", "metric": "annual" },
+    { "id": "growth", "label": "revenue growth", "value": 23, "decimals": 0, "prefix": "", "suffix": "%", "metric": "YoY" },
+    { "id": "customers", "label": "active customers", "value": 84200, "decimals": 0, "prefix": "", "suffix": "", "metric": "end of year" },
+    { "id": "retention", "label": "retention rate", "value": 91, "decimals": 0, "prefix": "", "suffix": "%", "metric": "annual" },
+    { "id": "claims-ratio", "label": "claims ratio", "value": 59, "decimals": 0, "prefix": "", "suffix": "%", "metric": "combined" },
+    { "id": "satisfaction", "label": "satisfaction", "value": 4.6, "decimals": 1, "prefix": "", "suffix": "/5", "metric": "NPS survey" },
+    { "id": "policies", "label": "policies in force", "value": 127400, "decimals": 0, "prefix": "", "suffix": "", "metric": "year-end" },
+    { "id": "avg-premium", "label": "avg premium ($)", "value": 1840, "decimals": 0, "prefix": "$", "suffix": "", "metric": "annual" },
+    { "id": "claims-paid", "label": "claims paid", "value": 9340, "decimals": 0, "prefix": "", "suffix": "", "metric": "FY 2025" },
+    { "id": "avg-handling", "label": "avg handling (d)", "value": 8.3, "decimals": 1, "prefix": "", "suffix": "d", "metric": "calendar days" },
+    { "id": "branches", "label": "branch offices", "value": 47, "decimals": 0, "prefix": "", "suffix": "", "metric": "locations" },
+    { "id": "staff", "label": "staff headcount", "value": 1170, "decimals": 0, "prefix": "", "suffix": "", "metric": "FTE" }
+  ]
+}
